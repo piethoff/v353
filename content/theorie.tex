@@ -1,0 +1,101 @@
+\section{Zielsetzung}
+Im allgeminen soll das Relaxationsverhalten eines RC-Schwingkreises untersucht werden.
+Dabei wird die Phasenabhängigkeit des Schwingkreises beobachtet und überprüft ob der RC-Schwingkreis als Integrator fungieren kann.
+
+\section{Theorie}
+\label{sec:Theorie}
+\subsection{Die allgemine Relaxationsgleichung}
+Wenn ein System ausgelenkt wird und nicht oszillatorisch in seinen Anfangszustand zurückkehrt, treten Relaxationserscheinungen auf.
+Die Geschwindigkeit der Rückkehr ist dabei proportional zu der Auslenkung:
+\begin{equation}
+  \frac{dA}{dt}=c[A(t)-A(\infty)]
+\end{equation}
+Durch Integration von $0$ bis $t$ ergibt sich:
+\begin{equation}
+  \ln{\frac{A(t)-A(\infty)}{A(0)-A(\infty)}}=ct
+\end{equation}
+Wird die e-Funktion auf die Gleichung anngewendet ergibt sich:
+\begin{equation}
+  \label{eq:gl2}
+  A(t)=A(\infty)+[A(0)-A(\infty)]\exp(ct)
+\end{equation}
+Wobei $c<0$ sein muss, damit $A$ beschränkt ist.
+\subsection{Anwendung auf den Auf- und Entladevorgag des RC-Schwingkreises}
+Der in Abbildung befindliche Kondensator soll aufgeladen sein, dann liegt zwischen den Platten eine Spanung
+\begin{equation}
+  U_C=\frac{Q}{C}
+\end{equation}
+an.
+Nach dem ohmschen Gesetz lässt sich der Strom durch
+\begin{equation}
+  I = \frac{U_C}{R}
+\end{equation}
+ausdrücken.
+Damit findet sich für den zeitlichen Verlauf der Ladung folgende Dgl.:
+\begin{equation}
+  \frac{dQ}{dt}=\frac{1}{RC}Q(t)
+\end{equation}
+Mit $Q(\infty)=0$ ergibt sich analog zu der Gleichung\eqref{eq:gl2}:
+\begin{equation}
+  Q(t)=Q(0)\exp(\frac{-t}{RC})
+\end{equation}
+Für den Aufladevorgang gelten die Randbedingungen
+\begin{equation}
+  Q(0)=0
+\end{equation}
+und
+\begin{equation}
+  Q(\infty)=CU_0 .
+\end{equation}
+Damit folgt für den Zeitlichhen Verlauf der Ladung:
+\begin{equation}
+  Q(t) = CU_0 \exp(\frac{-t}{RC})
+\end{equation}
+Die Zeitkonstante ist ein Maß für die Geschwindigkeit der Relaxation des Systems. Hier ist diese $\frac{1}{RC}$.
+
+\subsection{Auf- und Entladevorgag mit periodischer Anregung}
+Liegt eine Wechselspannung
+\begin{equation}
+  U(t)=U_0 cos(\omega t)
+\end{equation}
+an, so lässt sich mit folgendem Ansatz eine Lösung für das Problem finden:
+\begin{equation}
+  U_c(t)= A(\omega) \cos{(\omega t + \phi(\omega))}
+\end{equation}
+Damit gilt für den Stromkreis, unter einbezug des zweiten Kirchhoffschen Gesetzes:
+\begin{equation}
+  \label{eq:gl3}
+  U_0 \cos{(\omega t)} = A \omega R C \sin{(\omega t + \phi)} + A(\omega)\cos{(\omega t + \phi)}
+\end{equation}
+Gleichung \eqref{eq:gl3} muss für alle $t$ gelten. Mit $\omega t= \frac{\pi}{2}$ ergibt sich dann:
+\begin{equation}
+  0 = - \omega R C \sin{(\frac{\pi}{2}+\phi)} + \cos{(\frac{\pi}{2}+\phi)}
+\end{equation}
+Durch umformung ergibt sich dann folgende Beziehung für die Phasenverschiebung:
+\begin{equation}
+  \phi(\omega)=\arctan{(- \omega R C)}
+\end{equation}
+Mit $\omega +\phi =\frac{\pi}{2}$ ergibt sich für die Generatorspannung:
+\begin{equation}
+  \label{eq:gl4}
+  A(\omega)= \frac{U_0}{\sqrt{1+\omega^2 R^2 C^2}}
+\end{equation}
+Es ist durch Gleichung\eqref{eq:gl4} erkennbar, dass das RC-Glied ein Tiefpass ist.
+
+\subsection{Der RC-Kreis als Integrator}
+Es gilt:
+\begin{equation}
+  U(t)= RC \frac{dU_c}{dt} + U_c(t)
+\end{equation}
+Unter der Voraussetzung $\omega >>\frac{1}{RC}$ ist $|U_C| <<|U|$.
+Somit lässt sich näherungsweise
+\begin{equation}
+  U(t)=RC \frac{dU_C}{dt}
+\end{equation}
+schreiben.
+Anders lässt sich dies als
+\begin{equation}
+  U_C(t)=\int_0^t U(t') dt
+\end{equation}
+schreiben.
+Die am Kondensator anliegende Spannung ist also proportional zu dem Integral der Generatorspannung.
