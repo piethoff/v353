@@ -47,9 +47,9 @@ plt.clf()
 x, y = np.genfromtxt('content/Messwerte2.txt', unpack=True)
 
 U_0 = 12.99
-
+y/=U_0
 plt.xlabel(r'$t/\si[per-mode=reciprocal]{\per\second}$')
-plt.ylabel(r'$U/\si{\volt}$')
+plt.ylabel(r'$A/U_0$')
 plt.xscale('log')
 plt.grid(True, which='both')
 
@@ -57,7 +57,7 @@ plt.plot(x, y, ".", color="xkcd:blue", label="Messwerte")
 
 # Fitvorschrift
 def g(x, A):
-    return U_0/np.sqrt(1+(2*np.pi*x)**2*A**2)      #jeweilige Fitfunktion auswaehlen:
+    return 1/np.sqrt(1+(2*np.pi*x)**2*A**2)      #jeweilige Fitfunktion auswaehlen:
 
 params, covar = curve_fit(g, x, y)            #eigene Messwerte hier uebergeben
 uparams = unumpy.uarray(params, np.sqrt(np.diag(covar)))
