@@ -102,7 +102,7 @@ Das so bestimmte RC-Glied hat einen Wert von:
 \end{equation*}
 %
 \subsection{Frequenzabhängigkeit der Phasenverschiebung}
-Aus der Messung zu Untersuchung der Frequanzabhängigkeit der Phasenverschiebung zwischen dem Generator und der Kondensatorspannung ergeben sich die in Tabelle \ref{tab:phase} aufgetragenen Werte. Aus den Messgrößen $a$ und $b$ wird nach Gleichung \eqref{eqn:abphase} der Phasenwinkel $\phi$ berechnen und ist ebenfalls angeführt.
+Aus der Messung zur Untersuchung der Frequanzabhängigkeit der Phasenverschiebung zwischen Generator und der Kondensatorspannung ergeben sich die in Tabelle \ref{tab:phase} aufgetragenen Werte. Aus den Messgrößen $a$ und $b$ wird nach Gleichung \eqref{eqn:abphase} der Phasenwinkel $\phi$ berechnen und ist ebenfalls angeführt.
 %
 \begin{table}[H]
     \caption{Messwerte der Phasenverschiebung.}
@@ -131,7 +131,7 @@ Aus der Messung zu Untersuchung der Frequanzabhängigkeit der Phasenverschiebung
 \noindent
 In Abbildung \ref{fig:plot3} sind die Messwerte und eine Theoriekurve nach Gleichung \eqref{eqn:phasetheorie} aufgetragen.
 \begin{equation}
-    \phi (\omega ) = \arctan (-\omega \, RC)
+    \phi (\omega ) = \arctan (-\omega \, RC) \notag
 \end{equation}
 Es wird mit Python/SciPy ein Curve-Fit erstellt, der Fit-Parameter ist hierbei $RC$.
 \begin{figure}[H]
@@ -146,6 +146,12 @@ Es ergibt sich
     RC = \SI{0.789\pm0.018}{\milli\second}.
 \end{equation}
 \noindent
+Aus Gleichung \eqref{eqn:phasetheorie} und \eqref{eq:gl4} erhält man eine Relative Amplitude, welche nurnoch vom Phasenwinkel abhängig ist.
+\begin{align}
+	A(\omega) & = \frac{U_0}{\sqrt{1+\tan^2(\phi)}} \\
+	\frac{A(\phi)}{U_0} & = \cos{\phi}
+\end{align}
+In Abbildung \ref{fig:polar} sind die Theoriekurve der relativen Amplitude und einige Messwertpaare aus Tabellen \ref{tab:phase} und \ref{tab:Messwerte2} in einem Polardiagramm gegen den Phasenwinkel aufgetragen.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{build/polar.pdf}
