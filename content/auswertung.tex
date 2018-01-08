@@ -84,12 +84,23 @@ Die so erhaltenen Messwerte befinden sich in Tabelle\ref{tab:Messwerte2}:
 \end{table}
 \noindent Die Werte werden in Abbildung aufgetragen.
 Durch diese wird eine nichtlineare Ausgleichskurve,mit Gleichung\eqref{eq:gl4}, gezogen.
+Die Ausgleichskurve hat die Form:
+\begin{equation}
+
+  A(\omega)= \frac{1}{\sqrt{1+\omega^2 m^2}}
+\end{equation}
+Diese wird mit Python/SciPy aufgetragen.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{build/messung2.pdf}
     \caption{Messwerte.}
     \label{fig:plot2}
 \end{figure}
+\noindent Dabei gilt $m=RC$.
+Das so bestimmte RC-Glied hat einen Wert von:
+\begin{equation*}
+  m = \SI{0.801\pm0.01}{\milli\second}
+\end{equation*}
 %
 \subsection{Frequenzabhängigkeit der Phasenverschiebung}
 Aus der Messung zu Untersuchung der Frequanzabhängigkeit der Phasenverschiebung zwischen dem Generator und der Kondensatorspannung ergeben sich die in Tabelle \ref{tab:phase} aufgetragenen Werte. Aus den Messgrößen $a$ und $b$ wird nach Gleichung \eqref{eqn:abphase} der Phasenwinkel $\phi$ berechnen und ist ebenfalls angeführt.
