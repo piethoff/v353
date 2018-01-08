@@ -30,8 +30,8 @@ Die so erhaltenen Messwerte befinden sich in Tabelle\ref{tab:Messwerte1} :
 
 \noindent Die Messwerte werden in der halblogarithmischen Abbildung aufgetragen.
 Es wird eine lineare Ausgleichsrechnung, mit Python, durchgeführt und aufgetragen.
-Diese hat eine Steigung von $m=\SI{-1.03\pm0.14}{\per\milli\second}$
-und einen $y$-Achsenabschnitt von $b=(2.75\pm0.19)$.
+Diese hat eine Steigung von $m=\SI{1.230\pm0.013}{\per\milli\second}$
+und einen $y$-Achsenabschnitt von $b=(2.890\pm0.018)$.
 
 \begin{figure}
     \centering
@@ -43,7 +43,7 @@ und einen $y$-Achsenabschnitt von $b=(2.75\pm0.19)$.
 Die Steigung ist hier $\frac{1}{RC}$ .
 Damit ist $RC$ der Kehrwert der Steigung.
 \begin{equation*}
-  RC=\SI{0.97\pm0.14}{\milli\second}
+  RC=\SI{0.813\pm0.009}{\milli\second}
 \end{equation*}
 \subsection{Frequenzabhängigkeit der Kondensatorspannung}
 Die Messung wird wie in der Durchführung beschrieben ausgeführt.
@@ -86,7 +86,6 @@ Die so erhaltenen Messwerte befinden sich in Tabelle\ref{tab:Messwerte2}:
 Durch diese wird eine nichtlineare Ausgleichskurve,mit Gleichung\eqref{eq:gl4}, gezogen.
 Die Ausgleichskurve hat die Form:
 \begin{equation}
-
   A(\omega)= \frac{1}{\sqrt{1+\omega^2 m^2}}
 \end{equation}
 Diese wird mit Python/SciPy aufgetragen.
@@ -144,7 +143,7 @@ Es wird mit Python/SciPy ein Curve-Fit erstellt, der Fit-Parameter ist hierbei $
 \noindent
 Es ergibt sich
 \begin{equation}
-    RC = \SI{-0.801\pm0.010e-3}{\second}.
+    RC = \SI{0.789\pm0.018}{\milli\second}.
 \end{equation}
 \noindent
 \begin{figure}[H]
@@ -160,20 +159,28 @@ Es ergibt sich
     \begin{minipage}{0.48\textwidth}
         \includegraphics[width=\textwidth]{content/Grafiken/MAP001.png}
         \subcaption{Integration einer Sinusspannung.}
+        \label{fig:sinus}
         \vspace{1em}
         \includegraphics[width=\textwidth]{content/Grafiken/MAP002.png}
         \subcaption{Integration einer Dreieckspannung.}
+        \label{fig:dreieck}
         \vspace{1em}
     \end{minipage}
     \hspace*{\fill}
     \begin{minipage}{0.48\textwidth}
         \includegraphics[width=\textwidth]{content/Grafiken/MAP003.png}
         \subcaption{Integration einer Rechteckspannung.}
+        \label{fig:rechteck}
         \vspace{1em}
         \includegraphics[width=\textwidth]{content/Grafiken/MAP004.png}
         \subcaption{Integration eines PWM-signals.}
+        \label{fig:pwm}
         \vspace{1em}
     \end{minipage}
     \caption{Ursprüngliche und durch den Schwingkreis integrierte Signale.}
 \end{figure}
 \noindent
+In der Abbildung \ref{fig:sinus} ist zu erkennen, wie aus einem negativen Sinussignal ein Cosinussignal entsteht.
+Die Dreieckspannung in Abbildung \ref{fig:dreieck} wird auf den linearen Teilstrecken zu Parabeln, welche abwechselnd nach oben und untengeöffnet sind. 
+Anhand der letzten beiden Abbildungen \ref{fig:rechteck} und \ref{fig:pwm} ist einerseits erkennbar, wie aus einer Stufenfunktion eine streckenweise linear ansteigende und abfallende Funktion wird und andererseits auch, dass durch eine ungleichmäßige Rechteckspannung ein asymmetrisches Signal entsteht.
+Aus oben genanntem lässt sich erkennen, dass das RC-Glied in diesem Aufbau als Integrator fungiert.
