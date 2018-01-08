@@ -35,7 +35,7 @@ und einen $y$-Achsenabschnitt von $b=(2.75\pm0.19)$.
 
 \begin{figure}
     \centering
-    \includegraphics{build/messung1.pdf}
+    \includegraphics[width=\textwidth]{build/messung1.pdf}
     \caption{Messwerte und Ausgleichsgerade.}
     \label{fig:plot1}
 \end{figure}
@@ -84,9 +84,83 @@ Die so erhaltenen Messwerte befinden sich in Tabelle\ref{tab:Messwerte2}:
 \end{table}
 \noindent Die Werte werden in Abbildung aufgetragen.
 Durch diese wird eine nichtlineare Ausgleichskurve,mit Gleichung\eqref{eq:gl4}, gezogen.
-\begin{figure}
+\begin{figure}[H]
     \centering
-    \includegraphics{build/messung2.pdf}
+    \includegraphics[width=\textwidth]{build/messung2.pdf}
     \caption{Messwerte.}
     \label{fig:plot2}
 \end{figure}
+%
+\subsection{Frequenzabhängigkeit der Phasenverschiebung}
+Aus der Messung zu Untersuchung der Frequanzabhängigkeit der Phasenverschiebung zwischen dem Generator und der Kondensatorspannung ergeben sich die in Tabelle \ref{tab:phase} aufgetragenen Werte. Aus den Messgrößen $a$ und $b$ wird nach Gleichung \eqref{dubbi} der Phasenwinkel $\phi$ berechnen und ist ebenfalls angeführt.
+%
+\begin{table}[H]
+    \caption{Messwerte der Phasenverschiebung.}
+    \label{tab:phase}
+    \centering
+    \begin{tabular}{S[table-format=3.2(0)e0] S[table-format=5.2(0)e0] S[table-format=5.2(0)e0] S[table-format=1.3]}
+        \toprule
+            {$a/\si{\micro\second}$} & {$b/\si{\micro\second}$} & {$f/\si{\hertz}$} & {$\phi$} \\
+        \midrule
+        800.00  & 47400.00  & 21.09     & 0.106\\
+        800.00  & 19980.00  & 50.08     & 0.252\\
+        760.00  & 10000.00  & 100.00    & 0.478\\
+        620.00  & 5000.00   & 200.00    & 0.779\\
+        520.00  & 3330.00   & 300.00    & 0.981\\
+        376.00  & 2000.00   & 500.00    & 1.181\\
+        216.00  & 1000.00   & 1000.00   & 1.357\\
+        116.00  & 499.84    & 2000.00   & 1.458\\
+        68.00   & 285.60    & 3500.00   & 1.496\\
+        48.00   & 200.88    & 5000.00   & 1.501\\
+        24.00   & 99.84     & 10000.00  & 1.510\\
+        12.20   & 50.00     & 20000.00  & 1.533\\
+        4.88    & 20.01     & 50000.00  & 1.532\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\noindent
+In Abbildung \ref{fig:plot3} sind die Messwerte und eine Theoriekurve nach Gleichung \eqref{dubbi} aufgetragen.
+\begin{equation}
+    \phi (\omega ) = \arctan (-\omega \, RC)
+\end{equation}
+Der Fit-Parameter ist hierbei $RC$.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{build/messung3.pdf}
+    \caption{Messwerte und Curve-Fit der Phasenverschiebung.}
+    \label{fig:plot3}
+\end{figure}
+\noindent
+Es ergibt sich
+\begin{equation}
+    RC = \SI{-0.801\pm0.010e-3}{\second}.
+\end{equation}
+\noindent
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{build/polar.pdf}
+    \caption{Relative Amplitude gegen Phasenverschiebung.}
+    \label{fig:polar}
+\end{figure}
+%
+\subsection{RC-Glied als Integrator}
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.44\textwidth}
+        \includegraphics[width=\textwidth]{content/Grafiken/MAP001.png}
+        \subcaption{.}
+        \hspace{1em} \vfill
+        \includegraphics[width=\textwidth]{content/Grafiken/MAP002.png}
+        \subcaption{.}
+    \end{minipage}
+    \begin{minipage}{0.44\textwidth}
+        \includegraphics[width=\textwidth]{content/Grafiken/MAP003.png}
+        \subcaption{.}
+        \hspace{1em} \vfill
+%        \includegraphics[width=0.55\textwidth, right]{content/Grafiken/MAP004.png}
+        \includegraphics[width=\textwidth]{content/Grafiken/MAP004.png}
+        \subcaption{.}
+    \end{minipage}
+    \caption{.}
+\end{figure}
+\noindent
