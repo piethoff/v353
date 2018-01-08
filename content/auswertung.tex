@@ -92,7 +92,7 @@ Durch diese wird eine nichtlineare Ausgleichskurve,mit Gleichung\eqref{eq:gl4}, 
 \end{figure}
 %
 \subsection{Frequenzabhängigkeit der Phasenverschiebung}
-Aus der Messung zu Untersuchung der Frequanzabhängigkeit der Phasenverschiebung zwischen dem Generator und der Kondensatorspannung ergeben sich die in Tabelle \ref{tab:phase} aufgetragenen Werte. Aus den Messgrößen $a$ und $b$ wird nach Gleichung \eqref{dubbi} der Phasenwinkel $\phi$ berechnen und ist ebenfalls angeführt.
+Aus der Messung zu Untersuchung der Frequanzabhängigkeit der Phasenverschiebung zwischen dem Generator und der Kondensatorspannung ergeben sich die in Tabelle \ref{tab:phase} aufgetragenen Werte. Aus den Messgrößen $a$ und $b$ wird nach Gleichung \eqref{eqn:abphase} der Phasenwinkel $\phi$ berechnen und ist ebenfalls angeführt.
 %
 \begin{table}[H]
     \caption{Messwerte der Phasenverschiebung.}
@@ -119,11 +119,11 @@ Aus der Messung zu Untersuchung der Frequanzabhängigkeit der Phasenverschiebung
     \end{tabular}
 \end{table}
 \noindent
-In Abbildung \ref{fig:plot3} sind die Messwerte und eine Theoriekurve nach Gleichung \eqref{dubbi} aufgetragen.
+In Abbildung \ref{fig:plot3} sind die Messwerte und eine Theoriekurve nach Gleichung \eqref{eqn:phasetheorie} aufgetragen.
 \begin{equation}
     \phi (\omega ) = \arctan (-\omega \, RC)
 \end{equation}
-Der Fit-Parameter ist hierbei $RC$.
+Es wird mit Python/SciPy ein Curve-Fit erstellt, der Fit-Parameter ist hierbei $RC$.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{build/messung3.pdf}
