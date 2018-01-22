@@ -100,6 +100,10 @@ Das so bestimmte RC-Glied hat einen Wert von:
 \begin{equation*}
   m = \SI{0.801\pm0.01}{\milli\second}
 \end{equation*}
+Der gemessene Wert für den Wiederstand des RC-Glieds beträgt:
+\begin{equation}
+  R = \SI{8.169}{\kilo\ohm}
+\end{equation}
 %
 \subsection{Frequenzabhängigkeit der Phasenverschiebung}
 Aus der Messung zur Untersuchung der Frequanzabhängigkeit der Phasenverschiebung zwischen Generator und der Kondensatorspannung ergeben sich die in Tabelle \ref{tab:phase} aufgetragenen Werte. Aus den Messgrößen $a$ und $b$ wird nach Gleichung \eqref{eqn:abphase} der Phasenwinkel $\phi$ berechnen und ist ebenfalls angeführt.
@@ -179,7 +183,7 @@ In Abbildung \ref{fig:polar} sind die Theoriekurve der relativen Amplitude und e
         \label{fig:rechteck}
         \vspace{1em}
         \includegraphics[width=\textwidth]{content/Grafiken/MAP004.png}
-        \subcaption{Integration eines PWM-signals.}
+        \subcaption{Integration eines PWM-Signals.}
         \label{fig:pwm}
         \vspace{1em}
     \end{minipage}
@@ -189,4 +193,41 @@ In Abbildung \ref{fig:polar} sind die Theoriekurve der relativen Amplitude und e
 In der Abbildung \ref{fig:sinus} ist zu erkennen, wie aus einem negativen Sinussignal ein Cosinussignal entsteht.
 Die Dreieckspannung in Abbildung \ref{fig:dreieck} wird auf den linearen Teilstrecken zu Parabeln, welche abwechselnd nach oben und untengeöffnet sind.
 Anhand der letzten beiden Abbildungen \ref{fig:rechteck} und \ref{fig:pwm} ist einerseits erkennbar, wie aus einer Stufenfunktion eine streckenweise linear ansteigende und abfallende Funktion wird und andererseits auch, dass durch eine ungleichmäßige Rechteckspannung ein asymmetrisches Signal entsteht.
-Aus oben genanntem lässt sich erkennen, dass das RC-Glied in diesem Aufbau als Integrator fungiert.
+Aus oben genanntem lässt sich erkennen, dass das RC-Glied in diesem Aufbau als Integrator fungiert.\\
+\textbf{Sinusspannung}:
+\begin{equation}
+  \int - \sin(t) dt = \cos(t)
+\end{equation}
+\textbf{Dreieckspannug}
+\begin{equation}
+  \int \begin{dcases}
+   \frac{-4}{T}t &  \frac{-T}{4}\leq t \leq \frac{T}{4}\\
+   \frac{4}{T}t-2 & \frac{T}{4}\leq t \leq \frac{3T}{4}
+ \end{dcases}
+ dt = \begin{dcases}
+  \frac{-2}{T}t^2 &  \frac{-T}{4}\leq t \leq \frac{T}{4}\\
+  \frac{2}{T}t^2-2t & \frac{T}{4}\leq t \leq \frac{3T}{4}
+\end{dcases}
+\end{equation}
+\textbf{Rechteckspannug}
+\begin{equation}
+  \int \begin{dcases}
+   -1 & 0 \leq t \leq \frac{T}{2}\\
+    1 & \frac{T}{2}\leq t \leq T
+ \end{dcases}
+ dt = \begin{dcases}
+    -t &  0 \leq t \leq \frac{T}{2}\\
+     t & \frac{T}{2}\leq t \leq  T
+   \end{dcases}
+\end{equation}
+\textbf{PWM-Signal}
+\begin{equation}
+  \int \begin{dcases}
+   -\frac{a}{T} & 0 \leq t \leq \frac{T}{a}\\
+    \frac{1-a}{T} & \frac{T}{a}\leq t \leq T
+ \end{dcases}
+ dt = \begin{dcases}
+    -\frac{a}{T}t &  0 \leq t \leq \frac{T}{a}\\
+     \frac{1-a}{T}t & \frac{T}{a}\leq t \leq  T
+   \end{dcases}
+\end{equation}
