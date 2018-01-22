@@ -103,12 +103,12 @@ Phi = np.array([0.252,  0.478,  0.981,  1.357,  1.496,  1.533])
 
 A/= U_0
 
-lin = np.linspace(0, np.pi, 1000)
+lin = np.linspace(0, np.pi/2, 1000)
 
 ax = plt.subplot(111, projection='polar')
 ax.plot(lin, np.cos(lin), "-", color="xkcd:orange", label="Theoriekurve")
 ax.plot(Phi, A, ".", color="xkcd:blue", label="Messwerte")
-ax.set_rticks([-1, -0.5, 0, 0.5, 1])
+ax.set_rticks([0, 0.25, 0.5, 0.75, 1])
 ax.set_rlabel_position(-22.5)
 
 plt.legend(loc="best")
