@@ -13,7 +13,7 @@ mpl.rcParams.update({
 })
 
 x, y = np.genfromtxt('content/Messwerte1.txt', unpack=True)
-
+y = np.exp(y)
 
 
 plt.xlabel(r'$t/\si{\second}$')
@@ -24,7 +24,7 @@ plt.grid(True, which='both')
 
 # Fitvorschrift
 def f(x, A, B):
-    return A*x + B      #jeweilige Fitfunktion auswaehlen:
+    return np.exp(B)*np.exp(A*x)      #jeweilige Fitfunktion auswaehlen:
 
 params, covar = curve_fit(f, x, y)            #eigene Messwerte hier uebergeben
 uparams = unumpy.uarray(params, np.sqrt(np.diag(covar)))
@@ -48,7 +48,7 @@ x, y = np.genfromtxt('content/Messwerte2.txt', unpack=True)
 
 U_0 = 12.99
 y/=U_0
-plt.xlabel(r'$t/\si[per-mode=reciprocal]{\per\second}$')
+plt.xlabel(r'$f/\si{\hertz}$')
 plt.ylabel(r'$A/U_0$')
 plt.xscale('log')
 plt.grid(True, which='both')
